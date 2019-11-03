@@ -4,6 +4,8 @@
 *.sqlite
 *.xls
 *.xlsx
+*.zip
+*.tar.gz
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
