@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# bash function used to retrieve the absolute file path of a file
+# bash function used to retrieve the absolute file path of a file as a string
 # note: thank you to peterh's answer on SO 
 #       https://stackoverflow.com/a/21188136
-get_abs_filename() {
+get_str_abs_filename() {
   # $1 : relative filename
   echo "'$(cd "$(dirname "$1")" && pwd)/$(basename "$1")'"
 }
