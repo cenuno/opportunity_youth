@@ -1,10 +1,16 @@
 /*
     Author:     Cristian E. Nuno
     Purpose:    Import CSV file into a PSQL table
-    Date:       November 2, 2019
+    Date:       November 4, 2019
 */
 
--- Create a skeleton table
+-- Drop any existing tables
+DROP TABLE IF EXISTS pums_2017;
+DROP TABLE IF EXISTS puma_names_2010;
+DROP TABLE IF EXISTS wa_jobs_2017;
+DROP TABLE IF EXISTS wa_geo_xwalk;
+
+-- Create a table for the 2017 5-year persons PUMS data
 CREATE TABLE pums_2017 (
     RT CHAR(1),
     SERIALNO CHAR(13),
@@ -294,7 +300,137 @@ CREATE TABLE pums_2017 (
     PWGTP80 NUMERIC(5)
 );
 
--- Copy the csv contents into the skeleton table
+-- Create a table for the 2010 PUMA names data
+CREATE TABLE puma_names_2010 (
+    State_FIPS CHAR(2),
+    State_Name CHAR(100),
+    CPUMA0010 CHAR(4),
+    PUMA CHAR(5),
+    GEOID CHAR(7),
+    GISJOIN CHAR(9),
+    PUMA_Name CHAR(500)
+);
+
+-- Create a table for the 2017 WA jobs data
+CREATE TABLE wa_jobs_2017 (
+    w_geocode CHAR(15),
+    C000 INTEGER,
+    CA01 INTEGER,
+    CA02 INTEGER,
+    CA03 INTEGER,
+    CE01 INTEGER,
+    CE02 INTEGER,
+    CE03 INTEGER,
+    CNS01 INTEGER,
+    CNS02 INTEGER,
+    CNS03 INTEGER,
+    CNS04 INTEGER,
+    CNS05 INTEGER,
+    CNS06 INTEGER,
+    CNS07 INTEGER,
+    CNS08 INTEGER,
+    CNS09 INTEGER,
+    CNS10 INTEGER,
+    CNS11 INTEGER,
+    CNS12 INTEGER,
+    CNS13 INTEGER,
+    CNS14 INTEGER,
+    CNS15 INTEGER,
+    CNS16 INTEGER,
+    CNS17 INTEGER,
+    CNS18 INTEGER,
+    CNS19 INTEGER,
+    CNS20 INTEGER,
+    CR01 INTEGER,
+    CR02 INTEGER,
+    CR03 INTEGER,
+    CR04 INTEGER,
+    CR05 INTEGER,
+    CR07 INTEGER,
+    CT01 INTEGER,
+    CT02 INTEGER,
+    CD01 INTEGER,
+    CD02 INTEGER,
+    CD03 INTEGER,
+    CD04 INTEGER,
+    CS01 INTEGER,
+    CS02 INTEGER,
+    CFA01 INTEGER,
+    CFA02 INTEGER,
+    CFA03 INTEGER,
+    CFA04 INTEGER,
+    CFA05 INTEGER,
+    CFS01 INTEGER,
+    CFS02 INTEGER,
+    CFS03 INTEGER,
+    CFS04 INTEGER,
+    CFS05 INTEGER,
+    createdate DATE
+);
+
+-- Create a table for the WA geographic crosswalk data 
+CREATE TABLE wa_geo_xwalk (
+    tabblk2010 CHAR(15),
+    st CHAR(2),
+    stusps CHAR(2),
+    stname CHAR(100),
+    cty CHAR(5),
+    ctyname CHAR(100),
+    trct CHAR(11),
+    trctname CHAR(100),
+    bgrp CHAR(12),
+    bgrpname CHAR(100),
+    cbsa CHAR(5),
+    cbsaname CHAR(100),
+    zcta CHAR(5),
+    zctaname CHAR(100),
+    stplc CHAR(7),
+    stplcname CHAR(100),
+    ctycsub CHAR(10),
+    ctycsubname CHAR(100),
+    stcd116 CHAR(4),
+    stcd116name CHAR(100),
+    stsldl CHAR(5),
+    stsldlname CHAR(100),
+    stsldu CHAR(5),
+    stslduname CHAR(100),
+    stschool CHAR(7),
+    stschoolname CHAR(100),
+    stsecon CHAR(7),
+    dtseconname CHAR(100),
+    trib CHAR(5),
+    tribname CHAR(100),
+    tsub CHAR(7),
+    tsubname CHAR(100),
+    stanrc CHAR(7),
+    stanrcname CHAR(100),
+    necta CHAR(5),
+    nectname CHAR(100),
+    mil CHAR(22),
+    milname CHAR(100),
+    stwib CHAR(8),
+    stwibname CHAR(100),
+    blklatdd NUMERIC,
+    blklondd NUMERIC,
+    createdate DATE
+);
+
+-- Copy the csv contents of the 2017 5-year persons data into the table
 COPY pums_2017
 FROM :PUMS_PATH
+DELIMITER ',' CSV HEADER;
+
+-- Copy the txt contents of the 2010 PUMA names data into the table
+COPY puma_names_2010
+FROM :PUMA_NAMES_PATH
+DELIMITER ',' CSV HEADER;
+
+-- Copy the csv contents of the 2017 WA jobs data into the table
+COPY wa_jobs_2017
+FROM :WA_JOBS_PATH
+DELIMITER ',' CSV HEADER;
+
+-- Copy the csv contents of the WA geographic crosswalk data into the table
+COPY wa_geo_xwalk
+FROM :WA_XWALK_PATH
 DELIMITER ',' CSV HEADER;

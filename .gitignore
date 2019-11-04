@@ -6,6 +6,17 @@
 *.xlsx
 *.zip
 *.tar.gz
+*csv.gz
+
+# Shapefiles
+*.cpg  
+*.dbf  
+*.prj  
+*.shp  
+*.shp.ea.iso.xml  
+*.shp.iso.xml  
+*.shp.xml  
+*.shx 
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
