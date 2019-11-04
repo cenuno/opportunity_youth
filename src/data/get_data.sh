@@ -22,7 +22,7 @@ wget -P data/raw https://www2.census.gov/programs-surveys/acs/data/pums/2017/5-Y
 unzip data/raw/csv_pwa.zip -d data/raw/
 
 # store the absolute file path of the .csv file that stores the PUMS data
-export PUMS_PATH=$(get_abs_filename "data/raw/psam_p53.csv")
+export PUMS_PATH=$(get_str_abs_filename "data/raw/psam_p53.csv")
 
 # move the documentation into the appropriate directory
 mv data/raw/ACS2013_2017_PUMS_README.pdf references/
