@@ -11,8 +11,11 @@ The SRP would like an update on the estimated number of OY in South King County.
 
 At minimum, the SRP is expecting the following:
 
-* An update of the estimated number of OY in South King County.
-Count of OY by Public Use Microdata Area (PUMA) within South King County;
+* A map that visualizes which parts of King County are a part of South King County;
+
+* An update of the estimated number of OY in South King County. In addition the estimate, be sure to include a breakdown of the count of OY by Public Use Microdata Area (PUMA) within South King County;
+    + _Note: your supervisor is very interested in these statistics. After the third day of project week, they will be conducting a code review to verify your results before you share these statistics with the SRP._
+
 
 * An update of the table “Opportunity Youth Status by Age” located on page 2 of the 2016 report “Opportunity Youth in the Road Map Project Region”; and
 
