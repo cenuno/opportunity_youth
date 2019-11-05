@@ -48,7 +48,7 @@ unzip data/raw/tl_2017_53_puma10.zip -d data/raw
 gunzip -c data/raw/wa_xwalk.csv.gz > data/raw/wa_xwalk.csv
 gunzip -c data/raw/wa_wac_S000_JT00_2017.csv.gz > data/raw/wa_wac_S000_JT00_2017.csv
 
-# export the .xls file to a .csv
+# export the .xls PUMA names file to a .csv
 python src/data/quote_puma.py 
 
 # store the absolute file path of the .csv file that stores the PUMS data
