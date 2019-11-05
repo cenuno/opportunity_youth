@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Start installing necessary packages"
 
 # Check for xcode-select; install if we don't have it
