@@ -46,20 +46,20 @@ The goal of this project is to showcase your newfound Python and PostgreSQL skil
 
 To complete this project, you will need to turn in the following deliverables:
 
-1. A public GitHub repository
+1. A public GitHub repository.
 
-2. An environment.yml file that contains all the necessary packages needed to recreate your conda environment
+2. An `environment.yml` file that contains all the necessary packages needed to recreate your conda environment.
 
 3. A standalone `src/` directory that stores all relevant source code.
 
     + All functions have docstrings that act as [professional-quality documentation](http://google.github.io/styleguide/pyguide.html#381-docstrings). 
 
-    + Well documented SQL queries with appropriate single-line or multiline comments.
+    + [Well documented](https://www.sqlstyle.guide/) SQL queries with appropriate single-line or multiline comments.
 
 4. A standalone `data/` directory that stores all relevant raw and processed data files
 
     + Be sure to include how the data was obtained!
-    + All large files are labeled in the `.gitignore` file.
+    + All large files are labeled in the `.gitignore` file to avoid having them accidently live in your commit history.
 
 5. A user-focused README.md file that explains your process, methodology and findings.
 
