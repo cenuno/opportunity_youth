@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Beginning to download data and documentation"
+echo "Start downloading data and documentation"
 
 # bash function used to retrieve the absolute file path of a file as a string
 # note: thank you to peterh's answer on SO 
