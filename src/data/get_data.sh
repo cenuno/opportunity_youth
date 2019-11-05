@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Beginning to download data and documentation"
+
 # bash function used to retrieve the absolute file path of a file as a string
 # note: thank you to peterh's answer on SO 
 #       https://stackoverflow.com/a/21188136
@@ -81,3 +83,5 @@ psql \
     --set WA_JOBS_PATH=$WA_JOBS_PATH \
     --set WA_XWALK_PATH=$WA_XWALK_PATH \
     --echo-all
+
+echo "Finished downloading data and documentation"
