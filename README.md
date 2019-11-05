@@ -8,6 +8,7 @@ To download the necessary data, please run the following command:
 
 ```bash
 # installs necessary requirements and downloads necessary data
+# note: this may take anywhere from 10-20 minutes
 sh setup.sh
 ```
 
@@ -17,6 +18,7 @@ This project relies on you using the [`environment.yml`](environment.yml) file t
 
 ```bash
 # create the oy-env conda environment
+# note: this make take anywhere from 10-20 minutes
 conda env create -f environment.yml
 
 # activate the oy-env conda environment
