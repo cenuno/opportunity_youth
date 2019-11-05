@@ -11,6 +11,8 @@ The SRP would like an update on the estimated number of OY in South King County.
 
 At minimum, the SRP is expecting the following:
 
+* A map that visualizes which parts of King County are a part of South King County;
+
 * An update of the estimated number of OY in South King County.
 Count of OY by Public Use Microdata Area (PUMA) within South King County;
 
