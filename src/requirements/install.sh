@@ -23,7 +23,7 @@ if test ! $(which wget); then
     brew install wget
 fi
 
-# Check for unzipl install if we don't have it
+# Check for unzip; install if we don't have it
 # for more info, see: https://formulae.brew.sh/formula/unzip
 if test ! $(which unzip); then
     echo "Installing unzip..."
@@ -38,6 +38,7 @@ if test ! $(which conda); then
 fi
 
 # Check for PostgreSQL; install if we don't have it
+# for more info, see: https://formulae.brew.sh/formula/postgresql
 if test ! $(which postgres); then
     echo "Installing PostgreSQL..."
     brew install postgresql
