@@ -1,0 +1,95 @@
+2010 PUMA Name Guidelines for Participants
+
+
+Descriptive names will be added to the Census Bureau’s public products including 
+demographic/housing products and geographic products (i.e., TIGER/Line Shapefiles and map 
+products).  PUMA names will be provided by SDCs during PUMA delineation.  In all cases, the 
+objective is to clearly identify the extent of the PUMA by identifying a concise area name that is 
+also meaningful to data users.  The Census Bureau will have final approval of all names for 
+inclusion in its public products and will collaborate with SDCs to create meaningful PUMA names 
+during the delineation process. 
+
+BASIC CONCEPTS AND NOMENCLATURE:
+
+The goal in assigning names to PUMAs is to provide a means for easily understanding and 
+identifying the geographic location of each PUMA.  PUMA names should generally reference the 
+geographic areas within a PUMA containing the most population, housing, and/or area, e.g., a 
+county, place (incorporated place or census designated place (CDP)), county subdivision, American 
+Indian reservation and/or off-reservation trust land, military installation, national park, and/or 
+prominent physical feature; the PUMA’s geographic relationship within or to another geographic 
+area, e.g., "Northeast Utah", "West Loudoun" in Virginia, or "Northeast Minneapolis" in Minnesota; 
+or a well-known region primarily within the PUMA, e.g., "Florida Panhandle."
+
+The following guidelines refer to the toponymy of PUMA names and particular associations to the 
+communities and features that the name represents:
+
+1)	PUMA names should be as short and concise as possible while still being descriptive, clear, 
+and unique within a state.
+
+2)	PUMAs may be named after the largest population center, administrative division, or 
+historically central place within it (e.g., “Burbank” in California, “Taos” in New Mexico).  
+Names of incorporated places, CDPs, and county subdivisions may be used.
+
+3)	PUMAs may be named after a populous American Indian Reservation (AIR) within it, (e.g., 
+“Navajo Nation Reservation - Hopi Reservation” in Arizona).
+
+4)	PUMAs may be named after a legal or statistical geography (e.g., county or CDP).  The 
+geographic type or area descriptor may be appended to the name to identify the particular 
+geographic entity being described where there is a clear case that the name alone may cause 
+confusion for data users (e.g., South San Bernardino County, San Bernardino City South).
+
+5)	Where a PUMA contains multiple centers or counties with relatively equal importance, a 
+PUMA name may represent no more than three centers or counties (e.g., “Mount Pleasant - 
+Moroni” in Utah).  If it is not clear which centers or counties to include, the PUMA name 
+should instead follow another of the name guidelines.
+
+6)	A PUMA may be named after a prominent physical feature (e.g., “Denali” or “Cook Inlet” in 
+Alaska), a prominent land use area in which it is partially or wholly located (e.g., 
+“Yellowstone National Park” in Wyoming), or a distinctive region within the county or state 
+(e.g., “Everglades and Lower Keys” in Florida).
+
+7)	If there is no clear cultural focus or topographic name that can be applied, a PUMA name 
+can consist of the state or county name, and a compass direction to indicate the portion of 
+the state or county in the PUMA.  The directional indicator should precede the state or 
+county name (e.g., “Northeast Colorado”).  Note: In all other cases, a state name or 
+abbreviation should not be appended to a name.
+
+8)	A PUMA name may consist of a place name and compass direction to give the PUMA 
+location relative to the place or within the place.  If a place name is used, the directional 
+indicator follows it (e.g., “Irvine South”).
+
+RULES AND NAMING CONVENTIONS:  The following detailed guidelines pertain to the 
+structural components of the name apart from its origin or association to the communities or 
+features it represents.
+
+9)	Character limit:  All names shall not exceed 86 characters.
+
+10)	Unique names:  A PUMA may not have the same name as another PUMA within the same 
+state.
+
+11)	State name or abbreviation:  A state name or abbreviation should be used only when the 
+PUMA name consists of the state name and a compass direction to indicate the portion of the 
+state in the PUMA (refer to #6, above).  For clarity, state abbreviations will be appended to 
+PUMA names in Census Bureau public products, as appropriate.
+
+12)	Hyphen usage for multiple geographic areas:  Hyphens may be used to connect the names of 
+multiple geographic areas used in the PUMA name.  Up to three geographic area names may 
+be included within a PUMA name.
+
+13)	Name hierarchy:  Where a PUMA name represents two or more areas joined by hyphen(s), 
+the names should be presented in order of population size or regional importance, listing the 
+most populous/most important first.
+
+14)	Alphabet:  All names must be in the Roman alphabet as normally used for writing the 
+English language.
+
+15)	Diacritical marks and special characters:  Diacritical marks (accents and tildes) may be added 
+to names.  For the 2010 Census, diacritical marks are allowed in all areas of the United 
+States, not just in Puerto Rico and Guam. A list of valid characters for geographic area names 
+will be added to PUMA delineation guidelines (see appendix A).
+
+16)	Abbreviations:  The words Saint and Sainte (abbreviated as St. and Ste., respectively), Air 
+Force Base (AFB), and Air Reserve Base (ARB) must be abbreviated.  USPS two-letter state 
+abbreviations may also be used, but are discouraged (refer to #11, above).  Other 
+abbreviations are discouraged, but may be accepted based on Census Bureau review and 
+approval.
