@@ -46,7 +46,7 @@
 
 
 SELECT  *,
-        SUM(opportunity_youth, total_youth) OVER() AS total_population,
+        SUM(opportunity_youth) OVER() AS total_population,
         opportunity_youth / SUM(opportunity_youth) OVER() * 100 AS pct
 FROM ( 
     SELECT SUM(pwgtp) AS opportunity_youth
@@ -59,10 +59,4 @@ FROM (
 
 )AS temp;
 
-FROM (
-    SELECT SUM(pwgtp) AS total_youth
-    FROM pums_2017
-    WHERE (rt = 'P')
-    AND (puma = '11610' OR puma = '11613' OR puma = '11614' OR puma = '11615' OR puma = '11611' OR puma = '11612')
-    
-) AS temp_total_youth
+
