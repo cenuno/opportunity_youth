@@ -1,0 +1,7 @@
+,estimate,estimate,estimate,total,total,total,percent,percent,percent
+age_flag,Age 16-18,Age 19-21,Age 22-24,Age 16-18,Age 19-21,Age 22-24,Age 16-18,Age 19-21,Age 22-24
+edu_flag,,,,,,,,,
+College Degree Holder,,132.0,633.0,,4749.0,5597.0,,2.78,11.31
+College but no degree,143.0,624.0,1228.0,2092.0,4749.0,5597.0,6.84,13.14,21.94
+HS Diploma or GED,833.0,2651.0,2259.0,2092.0,4749.0,5597.0,39.82,55.82,40.36
+No Diploma,1116.0,1342.0,1477.0,2092.0,4749.0,5597.0,53.35,28.26,26.39
