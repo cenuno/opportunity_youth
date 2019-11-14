@@ -44,6 +44,11 @@ wget -P data/raw https://lehd.ces.census.gov/data/lodes/LODES7/wa/wac/wa_wac_S00
 # download the WA geographic crosswalk data
 wget -P data/raw https://lehd.ces.census.gov/data/lodes/LODES7/wa/wa_xwalk.csv.gz
 
+# download the census tract to puma geographic crosswalk data
+# note: see here for a data dictionary 
+#       (https://www.census.gov/programs-surveys/geography/technical-documentation/records-layout/2010-tract-to-puma-record-layout.html)
+wget -P data/raw https://www2.census.gov/geo/docs/maps-data/data/rel/2010_Census_Tract_to_2010_PUMA.txt
+
 # unpack the .zip files and place contents back into data/raw/ directory
 unzip data/raw/csv_pwa.zip -d data/raw/
 unzip data/raw/tl_2017_53_puma10.zip -d data/raw
@@ -65,6 +70,9 @@ export WA_JOBS_PATH=$(get_str_abs_filename "data/raw/wa_wac_S000_JT00_2017.csv")
 # store the absolute file path of the .csv file that stores the WA geographic crosswalk data
 export WA_XWALK_PATH=$(get_str_abs_filename "data/raw/wa_xwalk.csv")
 
+# store the absolute file path of the .csv file that stores the census tract to puma geographic crosswalk data
+export CT_PUMA_XWALK_PATH=$(get_str_abs_filename "data/raw/2010_Census_Tract_to_2010_PUMA.txt")
+
 # move the documentation into the appropriate directory
 mv data/raw/ACS2013_2017_PUMS_README.pdf references/
 mv PUMS_Data_Dictionary_2017.pdf references/
@@ -82,6 +90,7 @@ psql \
     --set PUMA_NAMES_PATH=$PUMA_NAMES_PATH \
     --set WA_JOBS_PATH=$WA_JOBS_PATH \
     --set WA_XWALK_PATH=$WA_XWALK_PATH \
+    --set CT_PUMA_XWALK_PATH=$CT_PUMA_XWALK_PATH \
     --echo-all
 
 echo "Finished downloading data and documentation"

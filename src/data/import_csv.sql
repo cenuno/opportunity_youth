@@ -1,7 +1,7 @@
 /*
     Author:     Cristian E. Nuno
     Purpose:    Import CSV file into a PSQL table
-    Date:       November 4, 2019
+    Date:       November 13, 2019
 */
 
 -- Drop any existing tables
@@ -9,6 +9,7 @@ DROP TABLE IF EXISTS pums_2017;
 DROP TABLE IF EXISTS puma_names_2010;
 DROP TABLE IF EXISTS wa_jobs_2017;
 DROP TABLE IF EXISTS wa_geo_xwalk;
+DROP TABLE IF EXISTS ct_puma_xwalk;
 
 -- Create a table for the 2017 5-year persons PUMS data
 CREATE TABLE pums_2017 (
@@ -415,6 +416,14 @@ CREATE TABLE wa_geo_xwalk (
     createdate DATE
 );
 
+-- Create a table for the census tract to puma geographic crosswalk data
+CREATE TABLE ct_puma_xwalk (
+    STATEFP CHARACTER(2),
+    COUNTYFP CHARACTER(3),
+    TRACTCE CHARACTER(6),
+    PUMA5CE CHARACTER(5)
+);
+
 -- Copy the csv contents of the 2017 5-year persons data into the table
 COPY pums_2017
 FROM :PUMS_PATH
@@ -433,4 +442,9 @@ DELIMITER ',' CSV HEADER;
 -- Copy the csv contents of the WA geographic crosswalk data into the table
 COPY wa_geo_xwalk
 FROM :WA_XWALK_PATH
+DELIMITER ',' CSV HEADER;
+
+-- Copy the csv contents of the census tract to puma geographic crosswalk data into the table
+COPY ct_puma_xwalk
+FROM :CT_PUMA_XWALK_PATH
 DELIMITER ',' CSV HEADER;
