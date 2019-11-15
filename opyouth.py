@@ -7,12 +7,14 @@ def pullsqldata():
                ("""SELECT * FROM oy_age_counts"""), 
                ("""SELECT * FROM oy_age_counts_by_education"""),
                ("""SELECT * FROM oy_age_summary"""),
-               ("""SELECT * FROM oy_education_summary""")]
+               ("""SELECT * FROM oy_education_summary"""),
+               ("""SELECT * FROM total_youth""")]
     opp_youth = pd.read_sql(sql = queries[0], con = engine)
     total_population = pd.read_sql(sql = queries[1], con = engine)
     opportunity_youth = pd.read_sql(sql = queries[2], con = engine)
     poptotals = pd.read_sql(sql = queries[3], con = engine)
     OYtotals = pd.read_sql(sql = queries[4], con = engine)
+    total_youth = pd.read_sql(sql = queries[5], con = engine)
     total_population['year'] = 2017
     opportunity_youth['year'] = 2017
     poptotals['year'] = 2017
@@ -43,7 +45,7 @@ def pullsqldata():
     youth_population_totals_2014_2017 = pd.concat([poptotals, opyouthtabletotals2014], ignore_index= True)
     oy_population_2014_2017 = pd.concat([opportunity_youth, educationtable2014], ignore_index= True)
     oy_population_totals_2014_2017 = pd.concat([OYtotals, educationtabletotals2014], ignore_index= True)
-    return opp_youth, total_population, poptotals, opportunity_youth, OYtotals, pivot_total_youth_pop, pivot_opportunity_youth, youth_population_2014_2017, youth_population_totals_2014_2017, oy_population_2014_2017, oy_population_totals_2014_2017
+    return opp_youth, total_population, poptotals, opportunity_youth, OYtotals, pivot_total_youth_pop, pivot_opportunity_youth, youth_population_2014_2017, youth_population_totals_2014_2017, oy_population_2014_2017, oy_population_totals_2014_2017, total_youth
 
 def plotdata1(df):
     """This function plots the data gathered and parsed in the pullsqldata() function"""

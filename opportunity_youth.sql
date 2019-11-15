@@ -1,12 +1,21 @@
+DROP TABLE IF EXISTS total_youth;
+CREATE TABLE total_youth AS (
+    SELECT * 
+    FROM pums_2017 
+    WHERE (rt = 'P') 
+    AND (puma = '11604' OR puma = '11605' OR puma = '11610' OR puma = '11613' OR puma = '11614' OR puma = '11615' OR puma = '11611' OR puma = '11612') 
+    AND (agep BETWEEN 16 AND 24) 
+);
+
 DROP TABLE IF EXISTS oyyouth_from_pumas;
 CREATE TABLE oyyouth_from_pumas AS (
     SELECT * 
-           FROM pums_2017 
-           WHERE (rt = 'P') 
-           AND (puma = '11604' OR puma = '11605' OR puma = '11610' OR puma = '11613' OR puma = '11614' OR puma = '11615' OR puma = '11611' OR puma = '11612') 
-           AND (agep BETWEEN 16 AND 24) 
-           AND (sch = '1') 
-           AND (esr = '3' OR esr = '6')
+    FROM pums_2017 
+    WHERE (rt = 'P') 
+    AND (puma = '11604' OR puma = '11605' OR puma = '11610' OR puma = '11613' OR puma = '11614' OR puma = '11615' OR puma = '11611' OR puma = '11612') 
+    AND (agep BETWEEN 16 AND 24) 
+    AND (sch = '1') 
+    AND (esr = '3' OR esr = '6')
 );
 
 DROP TABLE IF EXISTS oy_age_counts;
