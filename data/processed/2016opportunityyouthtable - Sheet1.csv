@@ -1,0 +1,10 @@
+age_flag,oy_flag,estimate,total,percent
+Age 16-18,OY,2805,50053,6
+Age 16-18,Working without diploma,587,50053,1
+Age 16-18,Not OY,46661,50053,93
+Age 19-21,OY,7284,41651,17
+Age 19-21,Working without diploma,2049,41651,5
+Age 19-21,Not OY,32318,41651,78
+Age 22-24,OY,8728,48031,18
+Age 22-24,Working without diploma,2877,48031,6
+Age 22-24,Not OY,36426,48031,76

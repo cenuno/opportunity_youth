@@ -1,0 +1,13 @@
+age_flag,edu_flag,estimate,total,percent
+Age 16-18,College but no degree,179,2805,6
+Age 16-18,HS Diploma or GED,985,2805,35
+Age 16-18,No Diploma,1610,2805,57
+Age 16-18,College degree holder,31,2805,1
+Age 19-21,College but no degree,166,7284,23
+Age 19-21,HS Diploma or GED,3349,7284,46
+Age 19-21,No Diploma,2048,7284,28
+Age 19-21,College degree holder,221,7284,3
+Age 22-24,College but no degree,1763,8728,20
+Age 22-24,HS Diploma or GED,3067,8728,35
+Age 22-24,No Diploma,1981,8728,23
+Age 22-24,College degree holder,1917,8728,22
