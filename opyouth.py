@@ -88,3 +88,121 @@ def plotdata2(df):
     plt.tight_layout()
     plt.savefig("percentOY.png", dpi = 300);
     return fig, ax
+
+def plotdata3(df):
+    """This function plots the data gathered and parsed in the pullsqldata() function"""
+    import seaborn as sns
+    import matplotlib.pyplot as plt 
+    import pandas as pd
+    sns.set_style('darkgrid')
+    style = 'seaborn-darkgrid'
+    plt.style.use(style)
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize = (15, 5), dpi = 100)
+
+    sns.barplot(x = 'age_flag',
+                y = 'percent',
+                hue = 'year',
+                data = df.loc[df['oy_flag'] == 'Not OY'],
+                ax = ax1)
+    ax1.set_title("Not Opportunity Youth")
+    ax1.set_xlabel("")
+    ax1.set_ylabel("Percent Population")
+    ax1.set_ylim(0, 100)
+
+    sns.barplot(x = 'age_flag',
+                    y = 'percent',
+                    hue = 'year',
+                    data = df.loc[df['oy_flag'] == 'Working without diploma'],
+                ax = ax3)
+    ax3.set_title("Working without Diploma")
+    ax3.set_xlabel("")
+    ax3.set_ylabel("")
+    ax3.set_ylim(0, 100)
+
+    sns.barplot(x = 'age_flag',
+                    y = 'percent',
+                    hue = 'year',
+                    data = df.loc[df['oy_flag'] == 'OY'],
+                ax = ax2)
+    ax2.set_title("Opportunity Youth")
+    ax2.set_xlabel("")
+    ax2.set_ylabel("")
+    ax2.set_ylim(0, 100)
+
+    plt.tight_layout()
+    plt.savefig("YouthPopulationbyAge.png", dpi = 300)
+    return fig, ax1, ax2, ax3
+
+def plotdata4(df):
+    """This function plots the data gathered and parsed in the pullsqldata() function"""
+    import seaborn as sns
+    import matplotlib.pyplot as plt 
+    import pandas as pd
+    sns.set_style('darkgrid')
+    style = 'seaborn-darkgrid'
+    plt.style.use(style)
+    fig, ax1 = plt.subplots(figsize = (5, 5), dpi = 100)
+
+    sns.barplot(x = 'age_flag',
+                    y = 'percent',
+                    hue = 'year',
+                    data = df.loc[df['oy_flag'] == 'OY'],
+                ax = ax1)
+    ax1.set_title("Opportunity Youth by Age")
+    ax1.set_xlabel("")
+    ax1.set_ylabel("Percent of Youth Population")
+    ax1.set_ylim(0, 25)
+
+    plt.tight_layout()
+    plt.savefig("OppYouthPopulationbyAge.png", dpi = 300)
+    return fig, ax1
+
+def plotdata5(df):
+    """This function plots the data gathered and parsed in the pullsqldata() function"""
+    import seaborn as sns
+    import matplotlib.pyplot as plt 
+    import pandas as pd
+    sns.set_style('darkgrid')
+    style = 'seaborn-darkgrid'
+    plt.style.use(style)
+    fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize = (8, 8), dpi = 100)
+
+    sns.barplot(x = 'year',
+                y = 'percent',
+                data = df.loc[df['edu_flag'] == 'No Diploma'],
+                ax = ax1)
+    ax1.set_title("Opportunity Youth without a Diploma")
+    ax1.set_xlabel("Year")
+    ax1.set_ylabel("Percent of Opportunity Youth")
+    ax1.set_ylim(0, 50)
+
+    sns.barplot(x = 'year',
+                y = 'percent',
+                data = df.loc[df['edu_flag'] == 'HS Diploma or GED'],
+                ax = ax2)
+    ax2.set_title("Opportunity Youth with a HS Diploma or GED")
+    ax2.set_xlabel("Year")
+    ax2.set_ylabel("")
+    ax2.set_ylim(0, 50)
+
+    sns.barplot(x = 'year',
+                y = 'percent',
+                data = df.loc[df['edu_flag'] == 'College but no degree'],
+                ax = ax3)
+    ax3.set_title("Opportunity Youth with College \n Credits but no Degree")
+    ax3.set_xlabel("Year")
+    ax3.set_ylabel("Percent of Opportunity Youth")
+    ax3.set_ylim(0, 50)
+
+    sns.barplot(x = 'year',
+                y = 'percent',
+                data = df.loc[df['edu_flag'] == 'College Degree Holder'],
+                ax = ax4)
+    ax4.set_title("Opportunity Youth with \n College Degree (Associates or Higher)")
+    ax4.set_xlabel("Year")
+    ax4.set_ylabel("")
+    ax4.set_ylim(0, 50)
+
+    plt.tight_layout()
+    plt.savefig("OpportunityYouthEducation.png", dpi = 300)
+    return fig, ax1, ax2, ax3, ax4
