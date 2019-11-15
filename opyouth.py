@@ -208,3 +208,129 @@ def plotdata5(df):
     plt.tight_layout()
     plt.savefig("OpportunityYouthEducation.png", dpi = 300)
     return fig, ax1, ax2, ax3, ax4
+
+def is_county(puma):
+    
+    '''This function takes a string input and checks if it is in King County
+    or South King County. 
+    
+    It returns a 0 for the greater washinton area, 1 for King County areas that are NOT south king county
+   and 2 for South King County. It is meant to use as apart of a .map(lambda) style syntax to apply across a Pandas Datafram.
+   
+   puma_arg can be a single puma id number or a list. It must be a string.'''
+   
+    king_counties = ['11601', '11602', '11603','11606', '11607', '11608', '11609', '11610', '11611', '11612', '11613', '11614', '11615', '11616'] 
+    s_king_counties = ['11610', '11613', '11614', '11615', '11611', '11612', '11604','11605']
+    if puma in s_king_counties:
+        return 2
+    elif puma in king_counties:
+        return 1
+    else:
+        return 0
+
+def make_locator_map():
+    import geopandas
+    from matplotlib import pyplot as plt
+    import folium
+    from mpl_toolkits.axes_grid1 import make_axes_locatable
+    import pandas as pd
+
+    wa_puma = geopandas.read_file("data/raw/tl_2017_53_puma10.shp")
+    wa_puma = wa_puma.to_crs(epsg='3857')
+
+    wa_puma["king_county"]=wa_puma["PUMACE10"].map(lambda x: is_county(x))
+
+    s_king_df = wa_puma.loc[wa_puma['king_county']==2]
+
+    sm = folium.Map([47.5, -122.3502], zoom_start=9.4, crs='EPSG3857', zoom_control = False)
+
+    folium.GeoJson(s_king_df).add_to(sm)
+    sm.save('S_King_County_Locator_Map.html')
+    return sm
+
+
+def prepare_df_for_choropleth (df1,df2):
+    import geopandas
+    from matplotlib import pyplot as plt
+    import folium
+    from mpl_toolkits.axes_grid1 import make_axes_locatable
+    import pandas as pd
+
+    OYbyPUMA = df1.groupby('puma')['pwgtp'].sum()
+    wa_puma = geopandas.read_file("data/raw/tl_2017_53_puma10.shp")
+    wa_puma = wa_puma.to_crs(epsg='3857')
+
+    wa_puma["king_county"]=wa_puma["PUMACE10"].map(lambda x: is_county(x))
+
+    s_king_df = wa_puma.loc[wa_puma['king_county']==2]
+    s_king_df.index = s_king_df['PUMACE10'] #reset the s_king_df index to be the puma id
+    OYbyPUMA_df = pd.DataFrame(OYbyPUMA)#create the dataframe containing the estimated # of OY
+    s_king_df = s_king_df.join(OYbyPUMA_df, how='left') #join them together
+    total_byPUMA = df2.groupby('puma')['pwgtp'].sum()
+    total_byPUMA_df = pd.DataFrame(total_byPUMA)
+    total_byPUMA_df = total_byPUMA_df.rename(columns={'pwgtp':'total_youth_pop'})
+    s_king_df = s_king_df.join(total_byPUMA_df, how='left') 
+    s_king_df['OY_percent']=round(s_king_df['pwgtp']/s_king_df['total_youth_pop']*100)
+
+    return s_king_df
+
+
+
+def make_choropleth_OYpop_map(geo_df):
+    '''this function outputs a choropleth map visualizing the total oy pop
+        per puma region'''
+    import geopandas
+    from matplotlib import pyplot as plt
+    import folium
+    from mpl_toolkits.axes_grid1 import make_axes_locatable
+    import pandas as pd
+    fig, ax = plt.subplots(1,1)
+    fig.set_size_inches(22,17)
+
+    ax.set_yticklabels([])
+    ax.set_ylabel(' ')
+
+    ax.set_xticklabels([])
+    ax.set_xlabel(' ')
+
+    ax.set_title("""Estimated Opportunity Youth \n by PUMA in S. King County""", 
+                fontdict = {'fontsize':'48'},
+                pad=20)
+    divider = make_axes_locatable(ax)
+    cax = divider.append_axes("right", size="5%", pad=0.1)
+
+    geo_df.plot(column = "pwgtp", ax=ax, cmap = "YlOrBr", legend = True, cax = cax,
+                edgecolor ='black')
+
+    plt.savefig("OY_by_puma_map.png", dpi =200) 
+    return fig, ax
+
+def make_choropleth_percentOY_map(geo_df):
+    ''' This function builds a choropleth map visualizing the percent oy youth by puma'''
+    import geopandas
+    from matplotlib import pyplot as plt
+    import folium
+    from mpl_toolkits.axes_grid1 import make_axes_locatable
+    import pandas as pd
+    fig_2, ax_2 = plt.subplots(1,1)
+    fig_2.set_size_inches(22,17)
+
+
+    ax_2.set_yticklabels([])
+    ax_2.set_ylabel(" " )
+
+    ax_2.set_xticklabels([])
+    ax_2.set_xlabel(' ')
+
+    ax_2.set_title("""Percent Opportunity Youth \n by PUMA in S. King County""" , 
+                fontdict = {'fontsize':'48'},
+                pad=20)
+
+    divider_2 = make_axes_locatable(ax_2)
+    cax_2 = divider_2.append_axes("right", size="5%", pad=0.1)
+
+    geo_df.plot(column = "OY_percent", ax=ax_2, legend = True, cmap = "YlOrBr", cax=cax_2,
+                edgecolor ='black')
+
+    plt.savefig("OY_percent_puma_map.png", dpi=200)
+    return fig_2, ax_2    
