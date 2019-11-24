@@ -1,3 +1,7 @@
+# Log files
+# note: this will be different for each person so it will cause a merge conflict
+log/*.txt
+
 # Data files
 *.csv
 *.db
