@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Start installing necessary packages"
+echo "Start installing necessary packages at $(date)"
 
 # Check for xcode-select; install if we don't have it
 # for more information, see: https://help.apple.com/xcode/mac/current/#/devc8c2a6be1
@@ -48,4 +48,4 @@ fi
 echo "Ensuring PostgreSQL services are running..."
 brew services start postgresql
 
-echo "Finished installing necessary packages"
+echo "Finished installing necessary packages at $(date)"
