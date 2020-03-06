@@ -1,0 +1,26 @@
+SELECT 
+	agep,
+	sch,
+	esr, 
+	puma,
+	CASE 
+		WHEN agep:: INT BETWEEN 16 AND 18 THEN '16-18'
+		WHEN agep:: INT BETWEEN 19 AND 21 THEN '19-21'
+		WHEN agep:: INT BETWEEN 22 AND 24 THEN '22-24'
+		ELSE 'Other'
+	END AS "AGE_GROUPS"
+FROM 
+	pums_2017
+WHERE 
+	puma::INT IN (11610, 11611, 11612, 11614, 11615)
+	AND sch:: INT = 2  OR sch:: INT = 3
+	AND agep:: INT BETWEEN 16 AND 24
+
+	
+
+
+
+
+
+
+
